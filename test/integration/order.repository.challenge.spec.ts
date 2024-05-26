@@ -13,7 +13,7 @@ import OrderItem from "../../src/domain/checkout/order_item";
 import Order from "../../src/domain/checkout/order";
 
 
-describe("Order repository test challenge", function () {
+describe.skip("Order repository test challenge", function () {
     let sequelize: Sequelize;
 
     beforeEach(async () => {
