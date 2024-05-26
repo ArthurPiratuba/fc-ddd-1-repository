@@ -1,14 +1,14 @@
 import { Sequelize } from "sequelize-typescript";
-import CustomerModel from "../../src/infra/customer/customer.model";
-import OrderModel from "../../src/infra/order/order.model";
-import OrderItemModel from "../../src/infra/order/order-item.model";
-import ProductModel from "../../src/infra/product/product.model";
-import CustomerRepository from "../../src/infra/customer/customer.repository";
+import CustomerModel from "../../src/infra/customer.model";
+import OrderModel from "../../src/infra/order.model";
+import OrderItemModel from "../../src/infra/order-item.model";
+import ProductModel from "../../src/infra/product.model";
+import CustomerRepository from "../../src/infra/customer.repository";
 import Customer from "../../src/domain/customer/customer";
 import Address from "../../src/domain/customer/address";
-import ProductRepository from "../../src/infra/product/product.repository";
+import ProductRepository from "../../src/infra/product.repository";
 import Product from "../../src/domain/product/product";
-import OrderRepository from "../../src/infra/order/order.repository";
+import OrderRepository from "../../src/infra/order.repository";
 import OrderItem from "../../src/domain/checkout/order_item";
 import Order from "../../src/domain/checkout/order";
 

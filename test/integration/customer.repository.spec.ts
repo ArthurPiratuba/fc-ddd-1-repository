@@ -1,6 +1,6 @@
 import { Sequelize } from "sequelize-typescript";
-import CustomerModel from "../../src/infra/customer/customer.model";
-import CustomerRepository from "../../src/infra/customer/customer.repository";
+import CustomerModel from "../../src/infra/customer.model";
+import CustomerRepository from "../../src/infra/customer.repository";
 import Address from "../../src/domain/customer/address";
 import Customer from "../../src/domain/customer/customer";
 

@@ -7,7 +7,7 @@ import {
   BelongsTo,
 } from "sequelize-typescript";
 import OrderModel from "./order.model";
-import ProductModel from "../product/product.model";
+import ProductModel from "./product.model";
 
 
 @Table({
