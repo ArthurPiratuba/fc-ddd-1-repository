@@ -13,7 +13,7 @@ import OrderItem from "../../src/domain/checkout/order_item";
 import Order from "../../src/domain/checkout/order";
 
 
-describe.skip("Order repository test challenge", function () {
+describe("Order repository test challenge", function () {
     let sequelize: Sequelize;
 
     beforeEach(async () => {
@@ -39,16 +39,16 @@ describe.skip("Order repository test challenge", function () {
 
     it("Should find an existing order", async () => {
         let customerRepository = new CustomerRepository();
+        let productRepository = new ProductRepository();
+        let orderRepository = new OrderRepository();
         let customer = new Customer("id_customer", "Vivente");
         customer.changeAddress(new Address("Rua", 1000, "CEP", "Cidade"));
-        customerRepository.create(customer);
-        let productRepository = new ProductRepository();
         let product = new Product("id_product", "Uma coisa legal", 10);
-        productRepository.create(product);
-        let orderRepository = new OrderRepository();
         let item = new OrderItem("id_item", "Uma coisa legal", 10, "id_product", 100);
         let order = new Order("id_order", "id_customer", [item]);
-        orderRepository.create(order);
+        await productRepository.create(product);
+        await customerRepository.create(customer);
+        await orderRepository.create(order);
         let savedOrder = await orderRepository.find("id_order");
         expect(savedOrder).toStrictEqual(order);
     });
