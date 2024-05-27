@@ -11,3 +11,6 @@ Boa sorte.
 - Domain Model
 - Relação entre Domain Model e ORMs
 - ORM Sequelize
+
+## Executar
+``npx jest``
