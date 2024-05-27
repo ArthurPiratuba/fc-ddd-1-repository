@@ -72,4 +72,23 @@ describe("Order repository test challenge", function () {
         let orders = await orderRepository.findAll();
         expect(orders).toMatchObject([]);
     });
+
+    it("should update an order", async function () {
+        let customerRepository = new CustomerRepository();
+        let productRepository = new ProductRepository();
+        let orderRepository = new OrderRepository();
+        let customer = new Customer("id_customer", "Vivente");
+        customer.changeAddress(new Address("Rua", 1000, "CEP", "Cidade"));
+        let product = new Product("id_product", "Uma coisa legal", 10);
+        let item = new OrderItem("id_item", "Uma coisa legal", 10, "id_product", 100);
+        let orderBeforeUpdate = new Order("id_order", "id_customer", [item]);
+        await productRepository.create(product);
+        await customerRepository.create(customer);
+        await orderRepository.create(orderBeforeUpdate);
+        let savedOrder = await orderRepository.find(orderBeforeUpdate.id);
+        savedOrder.updateItem(new OrderItem("id_item", "Uma coisa legal alterada", 2, "id_product", 300));
+        await orderRepository.update(savedOrder);
+        let updatedOrder = await orderRepository.find(orderBeforeUpdate.id);
+        expect(updatedOrder).toMatchObject(savedOrder);
+    });
 });
